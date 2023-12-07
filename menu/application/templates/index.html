@@ -1,0 +1,13 @@
+{% block title %} Index Page {% endblock %}
+
+{% load draw_menu %}
+{% block content %}
+<h2> Welcome to the Tree Page </h2>
+{% if menu %}
+    {% draw_menu 'menu1' %}
+    {% draw_menu 'menu2' %}
+{% else %}
+    <p>Меню не найдено.</p>
+{% endif %}
+
+{% endblock %}
