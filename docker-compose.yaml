@@ -27,6 +27,7 @@ services:
       python main.py migrate &&
       python main.py makemigrations &&
       python main.py add_data &&
+      python main.py createsuperuser --noinput --username $DJANGO_SUPERUSER_USERNAME --email $DJANGO_SUPERUSER_EMAIL &&
       python main.py runserver 0.0.0.0:8000 --noreload"
     ports:
       - "8000:8000"
@@ -38,16 +39,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-
-#  command:
-#    container_name: command_for_django
-#    build:
-#      context: .
-#    command: python main.py add_data
-#    networks:
-#      - menu
-#    depends_on:
-#      - django
 
 
 networks:
